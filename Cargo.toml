@@ -1,0 +1,17 @@
+[package]
+name = "material-you-generator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.8", features = ["derive"] }
+material-colors = { version = "0.3.3", "features" = ["image", "serde"] }
+serde = { version = "1.0.203", "features" = ["derive"] }
+serde_json = "1.0.118"
+
+[profile.release]
+strip = true  # Automatically strip symbols from the binary.
+opt-level = "z"  # Optimize for size.
+# opt-level = "s"  # Optimize for size.
+lto = true
+codegen-units = 1
