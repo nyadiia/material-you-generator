@@ -1,4 +1,4 @@
-\# material you theme generator
+# material you theme generator
 ## A simple cli tool to take in an image and generate a material 3 theme from it.
 
 Currently this generates all possible themes given a variant, which is light, light medium contrast, light high contrast, dark, dark medium contrast, and dark high contrast.
