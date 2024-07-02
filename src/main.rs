@@ -184,9 +184,10 @@ fn main() {
         Variant::Rainbow => material_colors::dynamic_color::Variant::Rainbow,
         Variant::FruitSalad => material_colors::dynamic_color::Variant::FruitSalad,
     };
-     
+
     let dyn_scheme_light_med = DynamicScheme::by_variant(primary_color, &variant, false, Some(0.5));
-    let dyn_scheme_light_high = DynamicScheme::by_variant(primary_color, &variant, false, Some(1.0));
+    let dyn_scheme_light_high =
+        DynamicScheme::by_variant(primary_color, &variant, false, Some(1.0));
     let dyn_scheme_dark_med = DynamicScheme::by_variant(primary_color, &variant, true, Some(0.5));
     let dyn_scheme_dark_high = DynamicScheme::by_variant(primary_color, &variant, true, Some(1.0));
 
@@ -194,12 +195,21 @@ fn main() {
     let scheme_light_high = Scheme::from(dyn_scheme_light_high);
     let scheme_dark_med = Scheme::from(dyn_scheme_dark_med);
     let scheme_dark_high = Scheme::from(dyn_scheme_dark_high);
-    
+
     let theme = ThemeBuilder::with_source(primary_color.clone())
         .variant(variant)
         .color_match(args.exact)
         .build();
-    
-    let serialized_theme = serde_json::to_string_pretty(&theme_to_json(&theme, [&scheme_light_med, &scheme_light_high, &scheme_dark_med, &scheme_dark_high])).unwrap();
+
+    let serialized_theme = serde_json::to_string_pretty(&theme_to_json(
+        &theme,
+        [
+            &scheme_light_med,
+            &scheme_light_high,
+            &scheme_dark_med,
+            &scheme_dark_high,
+        ],
+    ))
+    .unwrap();
     std::fs::write(args.output, serialized_theme).expect("Unable to write file");
 }
