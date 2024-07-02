@@ -1,6 +1,6 @@
 # yalda
 
-Yalda (/ˌjɑːl.də/)[^1] is a simple CLI tool which can generate [Material You] color schemes
+Yalda (/ˈjɑːldə/)[^1] is a simple CLI tool which can generate [Material You] color schemes
 from input images. Currently, it generates all possible themes (light/dark + contrasts) for
 the given variant.
 
